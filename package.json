@@ -1,7 +1,7 @@
 {
   "name": "vue-radio-checkbox-z",
-  "version": "1.0.0",
-  "description": "Vue UI Check/Radio [RadioGroup, Checkbox(s)], (My-test)",
+  "version": "1.0.2",
+  "description": "Vue UI Check/Radio [RadioGroup, Checkbox(s)], (My test)",
   "main": "dist/index.esm.js",
   "browser": "dist/index.esm.js",
   "module": "dist/index.esm.js",
@@ -29,10 +29,13 @@
   "keywords": [
     "vue",
     "vue-radio",
+    "vue-checkbox",
+    "vue-radio-group",
+    "vue-component",
+    "vue-radio-checkbox",
+    "vue-checkbox-radio",
     "ui-radio",
     "ui-checkbox",
-    "vue-radio-group",
-    "Vue-checkbox",
     "custom-radio",
     "custom-checkbox"
   ],

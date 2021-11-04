@@ -9,7 +9,11 @@
 </div>
 
 ---
+<span>You can customize <b>icon</b>, <b>theme</b> or <b>color</b> for <b>Checkbox/Radio</b></span>
 
+<b><small>Vue /React/ Svelte</small></b>
+
+---
 ### Usage
 Install the package
 ```js
@@ -22,14 +26,14 @@ import RadioCheckBox from "vue-radio-checkbox-z";
 Vue.component('RadioCheckBox', RadioCheckBox)
 ```
 
-#### Snippet
+### Snippet
 ```js
 options: [
     { label: 'label1', value:'label1' },
     'label2',
     'label3',
     // ...more,
-    // { label, value, disabled, className: 'itemClass', labelClassName: 'labelClass' }
+    // { label, value, disabled, className: 'itemClass', labelClassName: 'labelClass',... }
 ],
 value: 'label1' //
 // value: ['label1'] // radio || checkbox
@@ -39,23 +43,27 @@ value: 'label1' //
 <RadioCheckBox :options="options"
     v-model="value" // array or string
     theme="tick"  // see props
+/>
 
+    <!--
     // more => 
     // groupName="item-group-template" // default random unique
     // height="30"          // min-height option
     // boxSize="16"         // box-size 16 x 16 
     // className=className
-    // disabled=true      // disabled all
-    // checkBox=true      // input="checkbox"
-    // displayBox=true    // display like checkbox
-    // vertical=true      // display vertical
-    // selectColor=any    // color when selected
-    // unSelectColor=any  // color when no selected
-    // hoverColor=any     // color when hover (default like selectColor)
-    // tickColor=any      // only theme (type `tick/x`)
+    // disabled=true        // disabled all
+    // checkBox=true        // input="checkbox"
+    // displayBox=true      // display like checkbox
+    // vertical=true        // display vertical
+    // selectColor=any      // color when selected
+    // unSelectColor=any    // color when no selected
+    // hoverColor=any       // color when hover (default like selectColor)
+    // tickColor=any        // only theme (type `tick/x`)
+    // tabFocusColor        // keypress tab (shawdow box: #000)
+    // checkedIcon        // custom icon
 
     // (boxSize is affected by: `box-sizing: border-box`)
-  />
+    -->
 ```
 
 ### Props
@@ -82,7 +90,8 @@ list data like. `[Object, String, ...]`
     {
         label: 'Display', value: 'value', disabled: false,  // disabled option
         className: 'itemClass', labelClassName: 'labelClass',
-        htmlTemplate // you chane change display label by htmlTemplate
+        htmlTemplate, // you chane change display label by htmlTemplate
+        checkedIcon // passing custom checked icon
     },
     ...,
     'value' // => make option { label: value, value: value }
@@ -109,13 +118,13 @@ Display vertical `true`. Defaut `false`
     // default (nothing) of html
     in: [
         'fill', 'in', 'out', 
-        'tick', 'tick-fill', 'tick-fill-in', // tickFill: pre version.
+        'tick', 'tick-fill', 'tick-fill-in',
         'x', 'x-fill', 'x-fill-in'
     ]
 ```
 
-
 #### selectColor (`String`)
+
 color when checked. Default <span style="color: #4169E1">[#4169E1]</span>
 
 
@@ -126,24 +135,37 @@ color when unchecked. Default <span style="color: #cbd1d8;">[#cbd1d8]</span>
 color when hover. Default using (selectColor)
 
 
-
 #### tickColor (`String`)
 Use when `theme` = `tick..` || `x..`
 
 `Color of tick when check.`
 
 
-#### height
-min-height of line-options. `px`. (default: `24px`)
+#### tabFocusColor (`String`)
+box shadow color when focus by tab. (`#000`)
 
-#### boxSize
+#### height (`number` or `number_px`)
+min-height of line-options. (default: `24px`)
+
+#### boxSize (`number` or `number_px`)
 size of check. (default: `16px`)
 
 #### className
 The className added to group.
 
-## customize icon check
+#### checkedIcon 
+
+customize checked icon (see live example)
+
+
+<br />
+
+###### customize icon check (another solution)
+`You should refrain from using this method.`
+
+<small>
 With theme: `x...` || `tick...` <br />You can override css to see custom tick.
+</small>
 
 ```css
 /* set your className(.itemClass) for selector unique */
@@ -156,6 +178,8 @@ With theme: `x...` || `tick...` <br />You can override css to see custom tick.
 ```
 
 ### Example
+<a href="https://codesandbox.io/s/vue-radio-checkbox-z-xml00">LIVE EXAMPLE</a>
+
 A working example can be found in the `example` directory. 
 
 ```js
